@@ -1,12 +1,20 @@
 import express from 'express';
-import debug from 'debug'
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import debug from 'debug';
+import config from '../src/db/config/config';
 
 const log = debug('App');
 
+const { port } = config;
+
 const app = express();
 
-const PORT = 5000;
+app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => res.status(200).json({ Welcome: 'Welcome to YAW' }));
 
-app.listen(PORT, () => log(`App is listening on port ${PORT}!`));
+app.listen(port, () => log(`App is listening on port ${port}!`));
