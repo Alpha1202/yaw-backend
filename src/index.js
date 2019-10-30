@@ -4,24 +4,24 @@ import cors from 'cors';
 import debug from 'debug';
 import config from '../src/db/config/config';
 
-
-const log = debug('App');
-
-
-const { port } = config;
+import userRoute from './routes/user.routes';
 
 const app = express();
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// routes
+app.use('/api/v1/users', userRoute);
 
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.status(200).json({ status: 200, Welcome: 'Welcome to YAW' }));
+app.get('/', (req, res) => res.status(200).json({ Welcome: 'Welcome to YAW' }));
+app.get('*', (req, res) => res.status(404).json({ Welcome: 'Route not Found' }));
 
-const server = app.listen(port, () => log(`App is listening on port ${port}!`));
-
-export default server;
+export default app;
 
 
 

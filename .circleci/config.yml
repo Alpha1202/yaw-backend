@@ -18,5 +18,4 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
-      - run: npm test -- -u
       - run: npm test && npm run coverage
