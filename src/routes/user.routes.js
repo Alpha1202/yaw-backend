@@ -5,8 +5,8 @@ import UserController from '../controllers/users.controller';
 const { signUp } = UserController;
 const validator = Validator();
 
-const route = Router();
+const userRoute = Router();
 
-route.post('/signup', validator, signUp);
+userRoute.post('/signup', validator, signUp);
 
-export default route;
+export default userRoute;
