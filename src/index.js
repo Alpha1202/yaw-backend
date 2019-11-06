@@ -4,9 +4,9 @@ import cors from 'cors';
 import debug from 'debug';
 import config from '../src/db/config/config';
 
+
 const log = debug('App');
 
-const { port } = config;
 
 const app = express();
 
@@ -17,4 +17,8 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => res.status(200).json({ Welcome: 'Welcome to YAW' }));
 
-app.listen(port, () => log(`App is listening on port ${port}!`));
+export default app;
+
+
+
+
