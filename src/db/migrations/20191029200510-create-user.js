@@ -10,20 +10,16 @@ module.exports = {
       },
       firstName: {
         type: Sequelize.STRING,
-        required: true,
       },
       lastName: {
         type: Sequelize.STRING,
-        required: true,
       },
       userName: {
         type: Sequelize.STRING,
-        required: true,
         unique: true,
       },
       email: {
         type: Sequelize.STRING,
-        required: true,
         unique: true,
       },
       createdAt: {
@@ -32,16 +28,13 @@ module.exports = {
       },
       password: {
         type: Sequelize.STRING,
-        required: true,
       },
       isVerified: {
         type: Sequelize.BOOLEAN,
-        required: false,
         defaultValue: false,
       },
       phoneNumber: {
         type: Sequelize.STRING,
-        required: true,
         unique: true,
       },
       about: {
@@ -49,11 +42,9 @@ module.exports = {
       },
       imageUrl: {
         type: Sequelize.STRING,
-        required: false,
       },
       verificationToken: {
         type: Sequelize.STRING,
-        required: false,
       },
       emailNotification: {
         type: Sequelize.BOOLEAN,
