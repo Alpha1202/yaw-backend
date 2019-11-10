@@ -8,6 +8,8 @@ import config from '../src/db/config/config';
 const log = debug('App');
 
 
+const { port } = config;
+
 const app = express();
 
 app.use(cors());
@@ -15,9 +17,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.status(200).json({ Welcome: 'Welcome to YAW' }));
+app.get('/', (req, res) => res.status(200).json({ status: 200, Welcome: 'Welcome to YAW' }));
 
-export default app;
+const server = app.listen(port, () => log(`App is listening on port ${port}!`));
+
+export default server;
 
 
 
